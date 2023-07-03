@@ -1,4 +1,3 @@
-import time
 
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
@@ -326,4 +325,4 @@ def test_tab_navigation_fillings(browser, home_page):
     assert element.is_displayed()
 
 
-    time.sleep(3)
+    
