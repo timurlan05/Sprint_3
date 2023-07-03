@@ -1,5 +1,3 @@
-import time
-
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -325,5 +323,3 @@ def test_tab_navigation_fillings(browser, home_page):
     # Выполнение assert, проверяющего отображение элемента
     assert element.is_displayed()
 
-
-    time.sleep(3)
