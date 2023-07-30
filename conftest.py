@@ -4,6 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
+from test import data
 
 @pytest.fixture
 def browser():
@@ -11,10 +12,10 @@ def browser():
     browser = webdriver.Chrome(ChromeDriverManager().install())
     browser.set_window_size(1920, 1080)
     # Открытие URL-адреса
-    browser.get("https://stellarburgers.nomoreparties.site/")
+    browser.get(f"{data.home_page}/")
     # Ожидание загрузки страницы (максимум 10 секунд)
     wait = WebDriverWait(browser, 10)
-    wait.until(EC.url_to_be("https://stellarburgers.nomoreparties.site/"))
+    wait.until(EC.url_to_be(f"{data.home_page}/"))
     yield browser
     # Завершение работы браузера после завершения тестов
     browser.quit()
@@ -32,22 +33,8 @@ def email():
     email = f"{name.lower()}_{surname.lower()}@{domain}"
     return email, name
 
-@pytest.fixture
-def password_reg():
-    passw_reg = "111111"
-    return passw_reg
-
-@pytest.fixture
-def incorrect_password():
-    incorrect_password = "111"
-    return incorrect_password
 
 
 
-
-@pytest.fixture
-def home_page():
-    page = "https://stellarburgers.nomoreparties.site"
-    return page
 
 
